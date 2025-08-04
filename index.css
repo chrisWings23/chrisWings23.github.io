@@ -1,0 +1,330 @@
+/* ------------------ Estilo General ------------------ */
+body {
+  background: linear-gradient(to right, #f5f7fa, #c3cfe2);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* ------------------ Modo Oscuro ------------------ */
+body.dark-mode {
+  background: #121212;
+  color: #ddd;
+}
+body.dark-mode .container,
+body.dark-mode .listado,
+body.dark-mode .notasRapidas {
+  background: #1e1e1e;
+  box-shadow: 0 8px 16px rgba(255, 255, 255, 0.1);
+  border-color: #444;
+}
+body.dark-mode .entrada {
+  background: #2a2a2a;
+  border-left-color: #e74c3c;
+  color: #eee;
+}
+body.dark-mode input,
+body.dark-mode button,
+body.dark-mode select,
+body.dark-mode textarea {
+  background-color: #333;
+  color: #eee;
+  border-color: #555;
+}
+body.dark-mode #loginContainer {
+  background: #1e1e1e;
+  color: #ddd;
+  box-shadow: 0 8px 16px rgba(255,255,255,0.1);
+}
+body.dark-mode #btnCerrarSesion {
+  background-color: #c0392b;
+  box-shadow: 0 2px 6px rgba(255,255,255,0.3);
+}
+body.dark-mode #buscadorNombre {
+  background: #222;
+  color: #eee;
+  border-color: #555;
+}
+
+/* ------------------ Modo Claro / Oscuro Toggle ------------------ */
+#themeToggle {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 48px;
+  height: 48px;
+  cursor: pointer;
+  z-index: 10000;
+  user-select: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#themeToggle svg {
+  width: 30px;
+  height: 30px;
+  fill: #e74c3c;
+  transition: fill 0.3s ease;
+}
+#themeToggle.dark svg.sun {
+  display: none;
+}
+#themeToggle.dark svg.moon {
+  display: block;
+}
+#themeToggle:not(.dark) svg.sun {
+  display: block;
+}
+#themeToggle:not(.dark) svg.moon {
+  display: none;
+}
+
+/* ------------------ Login ------------------ */
+#loginContainer {
+  max-width: 400px;
+  background: #fffbea;
+  padding: 30px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+  border-radius: 15px;
+  margin: 100px auto;
+}
+#loginContainer input,
+#loginContainer button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 15px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  box-sizing: border-box;
+  font-family: inherit;
+}
+#loginContainer button {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+#loginError {
+  color: red;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+/* ------------------ Password Wrapper ------------------ */
+.password-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  margin-top: 15px;
+}
+.password-wrapper input {
+  width: 100%;
+  padding: 12px 44px 12px 12px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  font-family: inherit;
+}
+.password-wrapper button {
+  position: absolute;
+  top: 50%;
+  right: 12px;
+  transform: translateY(-50%);
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  color: #888;
+}
+.password-wrapper button:hover {
+  color: #e74c3c;
+}
+.password-wrapper button svg {
+  width: 22px;
+  height: 22px;
+  stroke: currentColor;
+  fill: none;
+}
+
+/* ------------------ Main Layout ------------------ */
+.main {
+  display: none;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 50px auto;
+  gap: 30px;
+  justify-content: center;
+  position: relative;
+  padding-top: 60px;
+}
+.container, .listado, .notasRapidas {
+  flex: 1;
+  min-width: 350px;
+  background: #fffbea;
+  padding: 30px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+  border-radius: 15px;
+}
+.container {
+  border: 2px dashed #f9d342;
+}
+.listado, .notasRapidas {
+  background: #ffffff;
+  max-height: 600px;
+  overflow-y: auto;
+}
+
+/* ------------------ Formularios ------------------ */
+h1, h2 {
+  text-align: center;
+  color: #4b4b4b;
+}
+label {
+  display: block;
+  margin-top: 20px;
+  font-weight: bold;
+  color: #444;
+}
+input, textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+button {
+  margin-top: 20px;
+  width: 100%;
+  padding: 12px;
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+/* ------------------ Entradas ------------------ */
+.entrada {
+  background: #f6f6f6;
+  border-left: 5px solid #e74c3c;
+  margin: 10px 0;
+  padding: 10px 15px;
+  position: relative;
+  border-radius: 8px;
+}
+.entrada:hover .eliminar {
+  display: flex;
+}
+.eliminar {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  background: #e74c3c;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  font-weight: bold;
+  display: none;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ------------------ Mes ------------------ */
+.mes {
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 20px;
+  color: #2c3e50;
+}
+
+/* ------------------ Buscador ------------------ */
+#buscadorNombre {
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+/* ------------------ Notas Rápidas ------------------ */
+.notasRapidas textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  resize: none;
+  margin-bottom: 10px;
+}
+.notaItem {
+  background: #f9f9f9;
+  padding: 8px;
+  margin: 5px 0;
+  border-radius: 6px;
+  border-left: 4px solid #e67e22;
+}
+
+/* ------------------ Perfil y Cerrar Sesión ------------------ */
+#btnCerrarSesion {
+  position: fixed;
+  top: 10px;
+  right: 15px;
+  background: #e74c3c;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  z-index: 1000;
+}
+#perfilUsuario {
+  position: fixed;
+  top: 10px;
+  left: 15px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 1000;
+  background-color: transparent;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+}
+#perfilUsuario.no-image {
+  background-color: #e74c3c;
+}
+#imagenPerfil {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: none;
+  border-radius: 50%;
+}
+#inputImagenPerfil {
+  display: none;
+}
+#letraPerfil {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  color: white;
+  font-size: 28px;
+  font-weight: bold;
+  text-transform: uppercase;
+  user-select: none;
+}
